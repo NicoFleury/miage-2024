@@ -6,6 +6,12 @@ services:
     restart: always
     networks:
       - miage-corp
+  product:
+    image: nicolasfy/product:1.2
+    container_name: product
+    restart: always
+    networks:
+      - miage-corp
   backforfront:
     image: nicolasfy/backforfront:1.2
     container_name: backforfront

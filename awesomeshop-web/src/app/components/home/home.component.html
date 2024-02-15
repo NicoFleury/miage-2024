@@ -1,0 +1,26 @@
+<ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" [routerLink]="['/basket']">Panier({{items.length}})</a>
+  </li>
+</ul>
+<div *ngIf="isLoading;else loadedContent" class="spinner-border" role="status">
+  <span class="sr-only"></span>
+</div>
+<ng-template #loadedContent>
+  <button type="button" class="btn btn-primary" [routerLink]="['product']">Ajouter un produit</button>
+  <table class="table table-striped">
+    <tr>
+      <th>Libellé</th>
+      <th>Prix</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr *ngFor="let p of products">
+      <td>{{p.label}}</td>
+      <td>{{p.price | currency:'EUR':true}}</td>
+      <td>
+        <button class="btn btn-link" (click)="addToBasket(p.id)">Ajouter au panier</button>
+        <a [routerLink]="['product', p.id]">Editer</a>
+      </td>
+    </tr>
+  </table>
+  </ng-template>

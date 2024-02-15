@@ -1,0 +1,62 @@
+version: '3.8'
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:23.0.6
+    container_name: keycloak-miage
+    ports:
+      - "8080:8080"
+    command:
+      - "start-dev"
+      - "--spi-theme-static-max-age=-1"
+      - "--spi-theme-cache-themes=false"
+      - "--spi-theme-cache-templates=false"
+    environment:
+      KC_DB: mariadb
+      KC_DB_URL_HOST: mariadb-miage
+      KC_DB_URL_DATABASE: keycloak
+      KC_DB_USERNAME: keycloak
+      KC_DB_PASSWORD: keycloak
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      JGROUPS_DISCOVERY_PROTOCOL: JDBC_PING
+      JGROUPS_DISCOVERY_PROPERTIES: datasource_jndi_name=java:jboss/datasources/KeycloakDS,info_writer_sleep_time=2000
+    restart: always
+    depends_on:
+      - mariadb-dev
+    networks:
+      - miage-corp
+  mariadb-dev:
+    image: mariadb
+    container_name: mariadb-miage
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: keycloak
+      MYSQL_USER: keycloak
+      MYSQL_PASSWORD: keycloak
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "--silent" ]
+    restart: always
+    networks:
+      - miage-corp
+    volumes:
+      - mariadb-data:/var/lib/mysql/data
+  mongo:
+    image: mongo:5.0
+    container_name: mongo-miage
+    ports:
+      - "27017:27017"
+    restart: always
+    networks:
+      - miage-corp
+    volumes:
+      - mongo-data:/data/db
+volumes:
+  mariadb-data:
+    name: mariadb-miage-data
+    driver: local
+  mongo-data:
+    name: mongo-miage-data
+    driver: local
+networks:
+  miage-corp:
+    name: miage-corp

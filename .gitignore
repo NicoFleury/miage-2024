@@ -1,0 +1,7 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+bin/
+obj/
+.vs/
+/MiageCorp.AwesomeShop.BackForFront/MiageCorp.AwesomeShop.BackForFront/obj/Release/net6.0/MiageCorp.AwesomeShop.BackForFront.GeneratedMSBuildEditorConfig.editorconfig
+/awesomeshop-web/.vscode
+/awesomeshop-web/package-lock.json

@@ -1,16 +1,16 @@
 version: '3.8'
 services:
   basket:
-    image: nicolasfy/basket:1.2
+    image: nicolasfy/basket:1.1
     container_name: basket
     restart: always
     networks:
       - miage-corp
   backforfront:
-    image: nicolasfy/backforfront:1.2
+    image: nicolasfy/backforfront:1.1
     container_name: backforfront
     ports:
-      - "5100:8080"
+      - "5100:80"
     restart: always
     networks:
       - miage-corp

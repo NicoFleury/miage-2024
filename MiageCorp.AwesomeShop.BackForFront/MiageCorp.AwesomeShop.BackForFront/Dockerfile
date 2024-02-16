@@ -1,11 +1,11 @@
 #See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
 WORKDIR /app
-EXPOSE 8080
+EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 WORKDIR /src
 COPY ["MiageCorp.AwesomeShop.BackForFront/MiageCorp.AwesomeShop.BackForFront.csproj", "MiageCorp.AwesomeShop.BackForFront/"]
 RUN dotnet restore "MiageCorp.AwesomeShop.BackForFront/MiageCorp.AwesomeShop.BackForFront.csproj"

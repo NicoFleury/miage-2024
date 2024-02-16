@@ -1,5 +1,11 @@
 version: '3.8'
 services:
+  product:
+    image: nicolasfy/product:1.1
+    container_name: product
+    restart: always
+    networks:
+      - miage-corp
   basket:
     image: nicolasfy/basket:1.1
     container_name: basket

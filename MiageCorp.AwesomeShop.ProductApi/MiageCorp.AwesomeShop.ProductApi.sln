@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiageCorp.AwesomeShop.ProductApi", "MiageCorp.AwesomeShop.ProductApi\MiageCorp.AwesomeShop.ProductApi.csproj", "{5533D74B-8AF8-4074-ADED-6D28CB2DA29E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5533D74B-8AF8-4074-ADED-6D28CB2DA29E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5533D74B-8AF8-4074-ADED-6D28CB2DA29E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5533D74B-8AF8-4074-ADED-6D28CB2DA29E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5533D74B-8AF8-4074-ADED-6D28CB2DA29E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D4E1620B-4C1D-4E07-9AB0-19427D3391DF}
+	EndGlobalSection
+EndGlobal
